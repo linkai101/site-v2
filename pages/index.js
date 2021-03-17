@@ -1,65 +1,190 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react';
+import { getSortedPosts } from "../lib/posts";
 
-export default function Home() {
+import Footer from '../components/Footer.js';
+
+import {
+  Box,
+  Container,
+  Flex,
+  Stack,
+  Center,
+  Text,
+  Heading,
+  Image,
+  IconButton,
+  Link,
+  Tooltip,
+} from '@chakra-ui/react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+const MAX_POSTS = 5;
+const MAX_PROJECTS = 5;
+
+const socials = require('../data/socials.json');
+const projects = require('../data/projects.json');
+
+export default function Home({ recentPostsData }) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <>
+      <Welcome/>
+      <Main recentPostsData={recentPostsData}/>
+      <Footer/>
+    </>
   )
+}
+
+function Welcome() {
+  return (
+    <>
+      <Container maxW="container.lg">
+        <Flex h={{ base: "auto", md: "50vw" }} maxH={{ base: "auto", md: 512 }}>
+          <Center w={{ base: "100%", md: "auto" }}>
+            <Box p="4" textAlign={{ base: "center", md: "left" }} maxW={{ base: "100%", md: "50vw", lg: 496 }}>
+              <Heading as="h1" fontSize={{ base: 48, md: "8vw", lg: 78 }} color="brand.600" my={2}>
+                Linkai Wu
+              </Heading>
+              <Heading as="h2" fontSize={{ base: 18, md: "3vw", lg: 30 }} color="gray.600" fontWeight="semibold">
+                HS sophomore, full-stack developer, techie, epic gamer
+              </Heading>
+              <Stack direction="row" spacing={2} my={6} justify={{ base: "center", md: "left" }}>
+                <Tooltip label="GitHub">
+                  <Link href={socials.github} isExternal><IconButton icon={<FontAwesomeIcon icon={faGithub}/>}/></Link>
+                </Tooltip>
+                <Tooltip label="Linkedin">
+                  <Link href={socials.linkedin} isExternal><IconButton icon={<FontAwesomeIcon icon={faLinkedin}/>}/></Link>
+                </Tooltip>
+                <Tooltip label="Email">
+                  <Link href={socials.email} isExternal><IconButton icon={<FontAwesomeIcon icon={faEnvelope}/>}/></Link>
+                </Tooltip>
+                <Tooltip label="YouTube">
+                  <Link href={socials.youtube} isExternal><IconButton icon={<FontAwesomeIcon icon={faYoutube}/>}/></Link>
+                </Tooltip>
+                <Tooltip label="Instagram">
+                  <Link href={socials.instagram} isExternal><IconButton icon={<FontAwesomeIcon icon={faInstagram}/>}/></Link>
+                </Tooltip>
+                <Tooltip label="Discord">
+                  <Link href={socials.discord} isExternal><IconButton icon={<FontAwesomeIcon icon={faDiscord}/>}/></Link>
+                </Tooltip>
+              </Stack>
+            </Box>
+          </Center>
+          <Box flex={1} align="center" pt={4} display={{ base: "none", md: "block" }}>
+            <Image w={{ base: 460, md: "100%" }} src="/images/astronaut.png"/>
+          </Box>
+        </Flex>
+      </Container>
+
+      <Box bg="brand.600" color="white">
+        <Container maxW="container.lg" p={4} lineHeight={1.2}>
+          <Text fontSize={{ base: 23, md: "3vw", lg: 30 }} fontWeight="bold" fontStyle="italic">
+            ""You miss 100% of the shots you don't take.
+          </Text>
+          <Text fontSize={{ base: 15, md: "2vw", lg: 20 }} fontWeight="bold" fontStyle="italic" ml={4}>- Wayne Gretzky"</Text>
+          <Text fontSize={{ base: 15, md: "2vw", lg: 20 }} fontWeight="bold" fontStyle="italic" ml={10}>- Michael Scott"</Text>
+          <Text fontSize={{ base: 15, md: "2vw", lg: 20 }} fontWeight="bold" fontStyle="italic" ml={16}>- Linkai Wu</Text>
+        </Container>
+      </Box>
+    </>
+  );
+}
+
+function Main({ recentPostsData }) {
+  return (
+    <>
+      <Container maxW="container.lg" py={8}>
+        <Flex direction={{ base: "column", md: "row" }}>
+          {/* MAIN COLUMN */}
+          <Box flex={1} px={4} maxWidth={{ base: "100%", md: "60%" }}>
+            <About/>
+            <Blog recentPostsData={recentPostsData}/>
+          </Box>
+          {/* SIDE COLUMN */}
+          <Box px={4} maxWidth={{ base: "100%", md: "40%" }}>
+            <Projects/>
+          </Box>
+        </Flex>
+      </Container>
+    </>
+  );
+}
+
+function About() {
+  return (
+    <Box as="section" py={4}>
+      <Heading as="h2" size="lg" mb={4}>👋 About</Heading>
+      <Text my={4}>
+        I'm a high school sophomore from Maryland, and I'm a student, programmer, techie, and a gamer.
+      </Text>
+      <Text my={4}>
+        As a STEM student at Montgomery Blair HS, I am very passionate about all things tech and computer science,
+        and I strive to learn, grow, and make a difference in my community.
+        My interests include but are not limited to full-stack and frontend development, software engineering, and 
+        AI + machine learning.
+        Technology and STEM aside, I also enjoy gaming, listening and playing music, educating and tutoring, and more.
+      </Text>
+      <Text>
+        Thank you for visiting my website! I am routinely updating the content on this page as well as my blog and 
+        projects page as I learn and make new things. Feel free to look around and come say hi!
+      </Text>
+    </Box>
+  );
+}
+
+function Blog({ recentPostsData }) {
+  return (
+    <Box as="section" py={4}>
+      <Heading as="h2" size="lg" mb={4}>📝 Latest from the Blog</Heading>
+      {recentPostsData.map(({ slug, date, title, category, excerpt }) => (
+        <Box as="article" py={4} key={slug}>
+          <Text fontSize={22} color="brand.600" fontWeight="bold">
+            <Link href={`/blog/${slug}`}>{title}</Link>
+          </Text>
+          <Text my={2} fontSize={18} fontWeight="semibold">
+            {category} <Text as="span" m={1} color="brand.600">//</Text> {date}
+          </Text>
+          <Text noOfLines={2}>
+            {excerpt}
+          </Text>
+        </Box>
+      ))}
+      <Text my={4} color="brand.500" fontSize={18} fontWeight="bold">
+        <Link href="/blog">View All Posts &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
+      </Text>
+    </Box>
+  );
+}
+
+function Projects() {
+  return (
+    <Box as="section" py={4}>
+      <Heading as="h3" fontSize="1.5rem" mb={4}>💼 Featured Projects</Heading>
+      {projects.slice(0,MAX_PROJECTS).map(({ name, url, description }) => 
+        <Box as="article" py={4} key={name}>
+          <Text mb={2} fontSize={22} color="brand.600" fontWeight="bold">
+            <Link href={url}>{name}</Link>
+          </Text>
+          <Text>
+            {description}
+          </Text>
+        </Box>
+      )}
+      <Text my={4} color="brand.500" fontSize={18} fontWeight="bold">
+        <Link href="/projects">View All Projects &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
+      </Text>
+    </Box>
+  );
+}
+
+export async function getStaticProps() {
+  const recentPostsData = getSortedPosts(MAX_POSTS);
+  return {
+    props: {
+      recentPostsData,
+    },
+  };
 }
