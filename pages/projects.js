@@ -24,7 +24,7 @@ export default function ProjectsPage() {
 
       <Navbar/>
 
-      <Container maxW="container.lg">
+      <Container maxW="container.lg" minH="100vh">
         <Box as="header" align="center" px={8} py={16}>
           <Heading as="h1" size="3xl">Projects</Heading>
         </Box>

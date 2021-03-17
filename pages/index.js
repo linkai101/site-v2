@@ -31,8 +31,10 @@ const projects = require('../data/projects.json');
 export default function Home({ recentPostsData }) {
   return (
     <>
-      <Welcome/>
-      <Main recentPostsData={recentPostsData}/>
+      <Box minH="100vh">
+        <Welcome/>
+        <Main recentPostsData={recentPostsData}/>
+      </Box>
       <Footer/>
     </>
   )
