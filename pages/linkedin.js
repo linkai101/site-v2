@@ -1,9 +1,10 @@
+/* TEMPORARY PAGE UNTIL I GET A LINKEDIN */
+
 import React from 'react';
 import Head from 'next/head';
 
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
-
 
 import {
   Container,
@@ -28,7 +29,7 @@ export default function Resume() {
           Meanwhile, check out my <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" color="brand.500" fontWeight="semibold">YouTube</Link>!
         </Text>
         <Image 
-          src="https://workshops.hackclub.com/content/workshops/orpheus/img/dinosaur_coming_from_the_future_to_destroy_humanity.png"
+          src="https://avatars.githubusercontent.com/u/14136442?s=460&u=051edb5c3d2cd606133112bae58d34e3e4d9b326&v=4"
           w={256}
           m={8}
         />

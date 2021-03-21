@@ -29,16 +29,19 @@ export default function ProjectsPage() {
           <Heading as="h1" size="3xl">Projects</Heading>
         </Box>
         <Stack direction="column" spacing={8} pb={12}>
-          {projects.map(({ name, url, description }) => (
+          {projects.map(({ name, url, description, github }) => (
             <Box as="article" py={4} key={name}>
               <Heading size="lg" color="brand.600">
-                <Link href={url}>{name}</Link>
+                <Link href={url} isExternal>{name}</Link> {github && <Link href={github} color="gray" fontSize="lg" isExternal>(GitHub)</Link>}
               </Heading>
               <Text my={2} fontSize={18} fontWeight="semibold">
               {description}
               </Text>
             </Box>
           ))}
+          {projects.length === 0 &&
+            <Text my={2}>Nothing here yet.</Text>
+          }
         </Stack>
       </Container>
 

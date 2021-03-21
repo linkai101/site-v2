@@ -41,6 +41,9 @@ export default function BlogPage({ allPostsData }) {
               </Text>
             </Box>
           ))}
+          {allPostsData.length === 0 &&
+            <Text my={2}>Nothing here yet.</Text>
+          }
         </Stack>
       </Container>
 

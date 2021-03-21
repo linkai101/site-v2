@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin, faTwitch } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const socials = require('../data/socials.json');
@@ -26,7 +26,7 @@ export default function Footer() {
       <Flex align="center" direction={{ base: "column", md: "row" }}>
         <Text m={2}><Link href="/">&copy; Linkai Wu</Link></Text>
         <Stack m={2} spacing={3} direction="row" align="center" fontWeight="bold">
-          <Link href="/resume">Resume</Link>
+          <Link href={socials.resume} isExternal>Resume</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/projects">Projects</Link>
         </Stack>
@@ -40,10 +40,13 @@ export default function Footer() {
           <Link href={socials.linkedin} isExternal><FontAwesomeIcon icon={faLinkedin}/></Link>
         </Tooltip>
         <Tooltip label="Email">
-          <Link href={socials.email} isExternal><FontAwesomeIcon icon={faEnvelope}/></Link>
+          <Link href={socials.email}><FontAwesomeIcon icon={faEnvelope}/></Link>
         </Tooltip>
         <Tooltip label="YouTube">
           <Link href={socials.youtube} isExternal><FontAwesomeIcon icon={faYoutube}/></Link>
+        </Tooltip>
+        <Tooltip label="Twitch">
+          <Link href={socials.twitch} isExternal><FontAwesomeIcon icon={faTwitch}/></Link>
         </Tooltip>
         <Tooltip label="Instagram">
           <Link href={socials.instagram} isExternal><FontAwesomeIcon icon={faInstagram}/></Link>

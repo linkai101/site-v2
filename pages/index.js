@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin, faTwitch } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,6 +27,7 @@ const MAX_PROJECTS = 5;
 
 const socials = require('../data/socials.json');
 const projects = require('../data/projects.json');
+const portal = require('../data/portal.json');
 
 export default function Home({ recentPostsData }) {
   return (
@@ -51,7 +52,7 @@ function Welcome() {
                 Linkai Wu
               </Heading>
               <Heading as="h2" fontSize={{ base: 18, md: "3vw", lg: 30 }} color="gray.600" fontWeight="semibold">
-                HS sophomore, full-stack developer, techie, epic gamer
+                HS sophomore, software engineer, techie, epic gamer
               </Heading>
               <Stack direction="row" spacing={2} my={6} justify={{ base: "center", md: "left" }}>
                 <Tooltip label="GitHub">
@@ -61,10 +62,13 @@ function Welcome() {
                   <Link href={socials.linkedin} isExternal><IconButton icon={<FontAwesomeIcon icon={faLinkedin}/>}/></Link>
                 </Tooltip>
                 <Tooltip label="Email">
-                  <Link href={socials.email} isExternal><IconButton icon={<FontAwesomeIcon icon={faEnvelope}/>}/></Link>
+                  <Link href={socials.email}><IconButton icon={<FontAwesomeIcon icon={faEnvelope}/>}/></Link>
                 </Tooltip>
                 <Tooltip label="YouTube">
                   <Link href={socials.youtube} isExternal><IconButton icon={<FontAwesomeIcon icon={faYoutube}/>}/></Link>
+                </Tooltip>
+                <Tooltip label="Twitch">
+                  <Link href={socials.twitch} isExternal><IconButton icon={<FontAwesomeIcon icon={faTwitch}/>}/></Link>
                 </Tooltip>
                 <Tooltip label="Instagram">
                   <Link href={socials.instagram} isExternal><IconButton icon={<FontAwesomeIcon icon={faInstagram}/>}/></Link>
@@ -101,12 +105,13 @@ function Main({ recentPostsData }) {
       <Container maxW="container.lg" py={8}>
         <Flex direction={{ base: "column", md: "row" }}>
           {/* MAIN COLUMN */}
-          <Box flex={1} px={4} maxWidth={{ base: "100%", md: "60%" }}>
+          <Box px={4} w={{ base: "100%", md: "60%" }}>
             <About/>
             <Blog recentPostsData={recentPostsData}/>
           </Box>
           {/* SIDE COLUMN */}
-          <Box px={4} maxWidth={{ base: "100%", md: "40%" }}>
+          <Box px={4} w={{ base: "100%", md: "40%" }}>
+            <Portal/>
             <Projects/>
           </Box>
         </Flex>
@@ -154,6 +159,9 @@ function Blog({ recentPostsData }) {
           </Text>
         </Box>
       ))}
+      {recentPostsData.length === 0 &&
+        <Text my={2}>Nothing here yet.</Text>
+      }
       <Text my={4} color="brand.500" fontSize={18} fontWeight="bold">
         <Link href="/blog">View All Posts &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
       </Text>
@@ -161,11 +169,11 @@ function Blog({ recentPostsData }) {
   );
 }
 
-function Projects() {
+function Portal() {
   return (
     <Box as="section" py={4}>
-      <Heading as="h3" fontSize="1.5rem" mb={4}>💼 Featured Projects</Heading>
-      {projects.slice(0,MAX_PROJECTS).map(({ name, url, description }) => 
+      <Heading as="h3" fontSize="1.5rem" mb={4}>✨ Portal</Heading>
+      {portal.map(({ name, url, description }) => 
         <Box as="article" py={4} key={name}>
           <Text mb={2} fontSize={22} color="brand.600" fontWeight="bold">
             <Link href={url}>{name}</Link>
@@ -175,6 +183,27 @@ function Projects() {
           </Text>
         </Box>
       )}
+    </Box>
+  );
+}
+
+function Projects() {
+  return (
+    <Box as="section" py={4}>
+      <Heading as="h3" fontSize="1.5rem" mb={4}>💼 Featured Projects</Heading>
+      {projects.slice(0,MAX_PROJECTS).map(({ name, url, description, github }) => 
+        <Box as="article" py={4} key={name}>
+          <Text mb={2} fontSize={22} color="brand.600" fontWeight="bold">
+            <Link href={url} isExternal>{name}</Link> {github && <Link href={github} color="gray" fontSize="md" isExternal>(GitHub)</Link>}
+          </Text>
+          <Text>
+            {description}
+          </Text>
+        </Box>
+      )}
+      {projects.length === 0 &&
+        <Text my={2}>Nothing here yet.</Text>
+      }
       <Text my={4} color="brand.500" fontSize={18} fontWeight="bold">
         <Link href="/projects">View All Projects &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
       </Text>

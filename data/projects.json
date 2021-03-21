@@ -1,12 +1,20 @@
 [
   {
+    "name": "Pollster",
+    "description": "A geo-based community polling app. Submitted to MoCoHacks 2021. (WINNER for Best UI)",
+    "url": "https://devpost.com/software/pollster",
+    "github": "https://github.com/tinuh/pollster"
+  },
+  {
     "name": "Classes",
     "description": "A virtual class manager.",
-    "url": "https://classes.linkaiwu.com"
+    "url": "https://classes.linkaiwu.com",
+    "github": "https://github.com/linkai101/class-manager"
   },
   {
     "name": "Typing Test",
     "description": "A speed typing practice site.",
-    "url": "https://typing.linkaiwu.com"
+    "url": "https://typing.linkaiwu.com",
+    "github": "https://github.com/linkai101/typing-test"
   }
 ]
