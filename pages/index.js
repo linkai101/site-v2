@@ -80,7 +80,7 @@ function Welcome() {
             </Box>
           </Center>
           <Box flex={1} align="center" pt={4} display={{ base: "none", md: "block" }}>
-            <Image w={{ base: 460, md: "100%" }} src="/images/astronaut.png"/>
+            <Image w={{ base: 460, md: "100%" }} src="/images/linkai.png"/>
           </Box>
         </Flex>
       </Container>
