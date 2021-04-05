@@ -19,7 +19,7 @@ export default function ProjectsPage() {
   return (
     <>
       <Head>
-        <title>Projects - Linkai Wu</title>
+        <title>Projects – Linkai Wu</title>
       </Head>
 
       <Navbar/>

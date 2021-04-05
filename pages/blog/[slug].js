@@ -22,7 +22,7 @@ export default function BlogPostPage({ source, frontMatter }) {
   return (
     <>
       <Head>
-        <title>{frontMatter.title} - Linkai Wu</title>
+        <title>{frontMatter.title} – Linkai Wu</title>
       </Head>
 
       <Navbar/>

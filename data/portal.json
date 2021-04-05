@@ -1,5 +1,10 @@
 [
   {
+    "name": "Blair Hack Club",
+    "description": "Join Hack Club at MBHS! No coding experience needed.",
+    "url": "https://blair.hackclub.com"
+  },
+  {
     "name": "Wiki",
     "description": "My CS guides, tutorials, and templates.",
     "url": "https://linkai.wiki"

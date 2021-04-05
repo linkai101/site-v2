@@ -18,7 +18,7 @@ export default function Resume() {
   return (
     <>
       <Head>
-        <title>Linkedin - Linkai Wu</title>
+        <title>Linkedin – Linkai Wu</title>
       </Head>
 
       <Navbar/>

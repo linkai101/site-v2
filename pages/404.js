@@ -17,7 +17,7 @@ export default function Custom404() {
   return (
     <>
       <Head>
-        <title>Uh oh 404!! - Linkai Wu</title>
+        <title>Uh oh 404!! – Linkai Wu</title>
       </Head>
 
       <Navbar/>

@@ -18,7 +18,7 @@ export default function BlogPage({ allPostsData }) {
   return (
     <>
       <Head>
-        <title>Blog - Linkai Wu</title>
+        <title>Blog – Linkai Wu</title>
       </Head>
 
       <Navbar/>
