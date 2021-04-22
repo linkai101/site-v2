@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin, faTwitch } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -52,7 +52,7 @@ function Welcome() {
                 Linkai Wu
               </Heading>
               <Heading as="h2" fontSize={{ base: 18, md: "3vw", lg: 30 }} color="gray.600" fontWeight="semibold">
-                HS sophomore, software engineer, techie, epic gamer
+                HS sophomore, software engineer, techie, gamer
               </Heading>
               <Stack direction="row" spacing={2} my={6} justify={{ base: "center", md: "left" }}>
                 <Tooltip label="GitHub">
@@ -67,14 +67,8 @@ function Welcome() {
                 <Tooltip label="YouTube">
                   <Link href={socials.youtube} isExternal><IconButton icon={<FontAwesomeIcon icon={faYoutube}/>}/></Link>
                 </Tooltip>
-                <Tooltip label="Twitch">
-                  <Link href={socials.twitch} isExternal><IconButton icon={<FontAwesomeIcon icon={faTwitch}/>}/></Link>
-                </Tooltip>
                 <Tooltip label="Instagram">
                   <Link href={socials.instagram} isExternal><IconButton icon={<FontAwesomeIcon icon={faInstagram}/>}/></Link>
-                </Tooltip>
-                <Tooltip label="Discord">
-                  <Link href={socials.discord} isExternal><IconButton icon={<FontAwesomeIcon icon={faDiscord}/>}/></Link>
                 </Tooltip>
               </Stack>
             </Box>

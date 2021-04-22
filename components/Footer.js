@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faDiscord, faYoutube, faLinkedin, faTwitch } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const socials = require('../data/socials.json');
@@ -45,14 +45,8 @@ export default function Footer() {
         <Tooltip label="YouTube">
           <Link href={socials.youtube} isExternal><FontAwesomeIcon icon={faYoutube}/></Link>
         </Tooltip>
-        <Tooltip label="Twitch">
-          <Link href={socials.twitch} isExternal><FontAwesomeIcon icon={faTwitch}/></Link>
-        </Tooltip>
         <Tooltip label="Instagram">
           <Link href={socials.instagram} isExternal><FontAwesomeIcon icon={faInstagram}/></Link>
-        </Tooltip>
-        <Tooltip label="Discord">
-          <Link href={socials.discord} isExternal><FontAwesomeIcon icon={faDiscord}/></Link>
         </Tooltip>
       </Stack>
     </Flex>

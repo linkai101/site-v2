@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="I'm a high school sophomore from Maryland, and I'm a student, programmer, techie, and a gamer."
+          content="I'm a high school sophomore from Maryland, and I'm a student, programmer, techie, and gamer."
         />
       </Head>
       <ChakraProvider theme={theme} resetCSS>
