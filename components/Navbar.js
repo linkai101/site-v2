@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import NextLink from 'next/link';
 
 import {
   Box,
@@ -10,7 +11,9 @@ export default function Navbar() {
   return (
     <Box py={4} px={8}>
       <Heading as="h1" size="lg">
-        <Link href="/">Linkai Wu</Link>
+        <NextLink href="/" passHref>
+          <Link>Linkai Wu</Link>
+        </NextLink>
       </Heading>
     </Box>
   )

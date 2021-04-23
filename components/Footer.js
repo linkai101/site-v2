@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link';
 
 import ColorModeToggle from './ColorModeToggle';
 
@@ -27,8 +28,8 @@ export default function Footer() {
         <Text m={2}><Link href="/">&copy; Linkai Wu</Link></Text>
         <Stack m={2} spacing={3} direction="row" align="center" fontWeight="bold">
           <Link href={socials.resume} isExternal>Resume</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/projects">Projects</Link>
+          <NextLink href="/blog" passHref><Link>Blog</Link></NextLink>
+          <NextLink href="/projects" passHref><Link>Projects</Link></NextLink>
         </Stack>
       </Flex>
       <Stack m={2} spacing={4} direction="row" justify="center" align="center">

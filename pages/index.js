@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link';
 import { getSortedPosts } from "../lib/posts";
 
 import Footer from '../components/Footer.js';
@@ -157,7 +158,9 @@ function Blog({ recentPostsData }) {
         <Text my={2}>Nothing here yet.</Text>
       }
       <Text my={4} color="brand.500" fontSize={18} fontWeight="bold">
-        <Link href="/blog">View All Posts &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
+        <NextLink href="/blog" passHref>
+          <Link>View All Posts &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
+        </NextLink>
       </Text>
     </Box>
   );
@@ -199,7 +202,9 @@ function Projects() {
         <Text my={2}>Nothing here yet.</Text>
       }
       <Text my={4} color="brand.500" fontSize={18} fontWeight="bold">
-        <Link href="/projects">View All Projects &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
+        <NextLink href="/projects" passHref>
+          <Link>View All Projects &nbsp;<FontAwesomeIcon icon={faChevronRight}/></Link>
+        </NextLink>
       </Text>
     </Box>
   );
