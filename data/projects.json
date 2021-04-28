@@ -12,6 +12,12 @@
     "github": "https://github.com/linkai101/class-manager"
   },
   {
+    "name": "How Old Am I?",
+    "description": "An app that visualizes your age compared to the US average life expectancy.",
+    "url": "https://howoldami.linkaiwu.com",
+    "github": "https://github.com/linkai101/howoldami"
+  },
+  {
     "name": "Typing Test",
     "description": "A speed typing practice site.",
     "url": "https://typing.linkaiwu.com",
