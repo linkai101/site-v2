@@ -53,7 +53,7 @@ function Welcome() {
                 Linkai Wu
               </Heading>
               <Heading as="h2" fontSize={{ base: 18, md: "3vw", lg: 30 }} color="gray.600" fontWeight="semibold">
-                HS sophomore, software engineer, techie, gamer
+                HS junior, software engineer, techie, gamer
               </Heading>
               <Stack direction="row" spacing={2} my={6} justify={{ base: "center", md: "left" }}>
                 <Tooltip label="GitHub">
@@ -120,7 +120,7 @@ function About() {
     <Box as="section" py={4}>
       <Heading as="h2" size="lg" mb={4}>👋 About</Heading>
       <Text my={4}>
-        I'm a high school sophomore from Maryland, and I'm a student, programmer, techie, and a gamer.
+        I'm a high school junior from Maryland, and I'm a student and programmer.
       </Text>
       <Text my={4}>
         As a STEM student at Montgomery Blair HS, I am very passionate about all things tech and computer science,
